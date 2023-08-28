@@ -1,0 +1,27 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()" >
+    <button 
+        class="text-blue fixed right-5 top-5 py-2 px-4" 
+        title="close form"
+        (click)="modalService.close()"
+    >x</button>
+    <input 
+        type="text"
+        class="border w-full py-2 px-4 mb-2"
+        placeholder="Product name"
+        formControlName="title"
+        appFocus
+    >
+
+    <p 
+        class="text-red-600 mb-2 font-medium"
+        *ngIf="title.errors?.minLength"
+        >
+        Min length - 6 symbols
+    </p>
+
+    <button 
+        type="submit"
+        class="py-2 px-4 bg-blue-600 text-white"
+    >Create</button>
+</form>

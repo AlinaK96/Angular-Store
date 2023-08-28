@@ -6,18 +6,26 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
+import { ModelComponent } from './components/model/model.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import {ReactiveFormsModule } from '@angular/forms';
+import { FocusDirective } from './directives/focus.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     GlobalErrorComponent,
-    FilterProductsPipe
+    FilterProductsPipe,
+    ModelComponent,
+    CreateProductComponent,
+    FocusDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
