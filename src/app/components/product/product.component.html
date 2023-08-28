@@ -2,4 +2,19 @@
     <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2">
     <h2 class="mb-2 text-md text-center">{{product.title}}</h2>
     <p class="text-center">Price: <span class="font-bold">{{product.price | currency:'€ ' }}</span></p>
+
+    <button class="border py-2 px-4 rounded bg-yellow-400" 
+        [ngClass]="{
+            'bg-blue-400' : !details,
+            'bg-yellow-400' : details
+        }"
+        (click)="details = !details"
+    >
+        {{details ? 'Hide' : 'Show'}} details
+    </button>
+    <div *ngIf="details" class="text-center">
+        <p>{{product.description}}</p>
+        <p class="font-bold ">Rate: {{product.rating.rate}}</p>
+    </div>
+
 </div>
