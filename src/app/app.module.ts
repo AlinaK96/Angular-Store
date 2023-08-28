@@ -19,7 +19,7 @@ import { FocusDirective } from './directives/focus.directive';
     FilterProductsPipe,
     ModelComponent,
     CreateProductComponent,
-    FocusDirective
+    FocusDirective,
   ],
   imports: [
     BrowserModule,

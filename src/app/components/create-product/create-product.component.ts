@@ -13,11 +13,21 @@ export class CreateProductComponent implements OnInit {
     title: new FormControl<string>('', [
       Validators.required,
       Validators.minLength(6)
-    ])
+    ]),
+    category: new FormControl<string>(''),
+    price: new FormControl<number>(5)
   })
 
   get title(){
     return this.form.controls.title as FormControl
+  }
+
+  get category(){
+    return this.form.controls.category as FormControl
+  }
+
+  get price(){
+    return this.form.controls.price as FormControl
   }
 
   constructor(
@@ -31,13 +41,13 @@ export class CreateProductComponent implements OnInit {
   submit(){
     this.productService.create({
       title: this.form.value.title as string,
-      price: 13.5,
+      price: this.form.value.price as number,
       description: 'lorem ipsum set',
       image: 'https://i.pravatar.cc',
-      category: 'electronic',
+      category: this.form.value.category as string,
       rating: {
-        rate: 42,
-        count: 1
+        rate: 4,
+        count: 25
       }
     }).subscribe(() => {
       this.modalService.close()
