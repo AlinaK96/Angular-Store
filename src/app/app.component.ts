@@ -10,6 +10,7 @@ import { ProductsService } from './services/products.service';
 })
 export class AppComponent implements OnInit {
   title = 'online store';
+  loading = false
 
   // products: IProduct[] = data
   products: IProduct[] = []
@@ -17,9 +18,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = true
     this.productsService.getAll().subscribe( products => {
       this.products = products
-      
+      this.loading = false
     })
   }
 }
