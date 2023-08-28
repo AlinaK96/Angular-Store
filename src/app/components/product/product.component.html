@@ -14,7 +14,7 @@
     </button>
     <div *ngIf="details" class="text-center">
         <p>{{product.description}}</p>
-        <p class="font-bold ">Rate: {{product.rating.rate}}</p>
+        <p class="font-bold ">Rate: {{product.rating.rate | number: '1.2-4'}}</p>
     </div>
 
 </div>
